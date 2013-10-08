@@ -1,6 +1,7 @@
 package PageDownloadSet::CMS;
 
 use strict;
+use warnings;
 use MT::Util qw( format_ts );
 use MT::Entry;
 use MT::Page;
@@ -155,38 +156,5 @@ sub download_webpage {
     
     return 1;
 }
-
-
-### debug
-### my $aaa = Dumper(@id_list);
-### outputText($aaa);
-### outputText(Dumper($id_list));
-
-#
-# デバッグ用
-sub outputText {
-    
-    my ($data) = @_;
-    
-    # エクスポートパスを取得
-    my $mt_path = MT->instance->mt_dir;
-    # ファイルマネージャー
-    my $fmgr = MT::FileMgr->new('Local');
-    
-    # エクスポートディレクトリを作成
-    my $ex_outpath = $mt_path . "/plugins/PageDownloadSet";
-    $fmgr->mkpath($ex_outpath);
-
-    # ファイルを追記専用で開く
-    open HANDLE, ">>$ex_outpath/debug.txt";
-     
-    # ファイル出力
-    print HANDLE "$data\n";
-     
-    # ファイルクローズ
-    close HANDLE;
-}
-
-
 
 1;
