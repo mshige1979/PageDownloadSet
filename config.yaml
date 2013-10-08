@@ -1,0 +1,24 @@
+id: PageDownloadSet
+key: PageDownloadSet
+name: PageDownloadSet
+version: 1.00
+l10n_class: PageDownloadSet::L10N
+description: <__trans phrase="The file of a web page is downloaded. ">
+author_name: m_shige1979
+author_link: 'https://twitter.com/m_shige1979/'
+
+# ダウンロード用の偽装
+list_properties:
+  page:
+    title:
+      auto: 1
+
+# アプリケーション
+applications:
+    # CMS管理画面
+    cms:
+        # メソッド定義
+        methods:
+            # ボタン押下時の処理
+            download_webpage: $PageDownloadSet::PageDownloadSet::CMS::download_webpage
+            

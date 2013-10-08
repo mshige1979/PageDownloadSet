@@ -1,0 +1,29 @@
+<div style="display: none;">
+  <div id="PageDownloadSet_Msg1"><__trans phrase="Web page download."></div>
+  <div id="PageDownloadSet_Msg2"><__trans phrase="All web pages are downloaded. Is it all right?"></div>
+</div>
+<mt:setvarblock name="jq_js_include" append="1">
+
+jQuery(window).bind('listReady', function() {
+	var $box = jQuery("div.button-actions.actions.first-child");
+	
+	var $btn = jQuery("<a />");
+	$btn.text(jQuery("#PageDownloadSet_Msg1").text());
+	$btn.addClass("button");
+	
+	// イベントのバインド
+	$btn.on("click", function(){
+		// 確認
+		if(window.confirm(jQuery("#PageDownloadSet_Msg2").text())){
+			// モードを設定して送信
+			document.forms[0]['__mode'].value = 'download_webpage';
+			document.forms[0].submit();
+		}
+		
+	});
+	
+	$box.append($btn);
+	
+	
+});
+</mt:setvarblock>
